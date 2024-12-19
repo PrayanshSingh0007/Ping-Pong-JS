@@ -102,6 +102,7 @@ body {
 }
 
 .btn-ui {
+
     background-image: radial-gradient(circle, #d44395, #c842a6, #b746b7, #9e4cc8, #7c54d7, #616dea, #3f83f7, #0097ff, #00baff, #00d6f7, #00ecbe, #57fa78);
     color: white;
 }
