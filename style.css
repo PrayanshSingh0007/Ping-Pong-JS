@@ -1,0 +1,207 @@
+html {
+    box-sizing: border-box;
+}
+
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body { 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    margin: 0;
+    /* background-color: #99e2ff; */
+    background-image: url(assets/Background-Img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
+    flex-direction: column;
+}
+
+#ping-pong-table {
+    width: 700px;
+    height: 400px;
+    position: relative;
+    background-color: transparent;
+}
+
+#ping-pong-table::after {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: calc(100% + 15px);
+    height: calc(100% + 15px);
+    border: 5px solid transparent;
+    border-image:  linear-gradient(to right, #009fff, #ec2f4b) 1; 
+    pointer-events: none;
+}
+
+#left-paddle {
+    background-color: #0000ff;
+    width: 10px;
+    height: 150px;
+    margin-left: 3px;
+    position: absolute;
+}
+
+#right-paddle {
+    background-color: #ff0000;
+    width: 10px;
+    height: 150px;
+    position: absolute;
+    right: 0;
+}
+
+#ball {
+    background-color: #ff25ff;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    position: absolute;
+}
+#player1score{
+    position: absolute;
+    top: 200px;
+    left: 100px;
+    font-size: 100px;
+    color: white;
+}
+
+#player2score{
+    position: absolute;
+    top: 200px;
+    right: 100px;
+    font-size: 100px;
+    color: white;
+}
+
+#reset-btn {
+    height: 50px;  
+    width: 200px; 
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 30px;
+    color: #000000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+#pause-btn{
+    height: 50px;  
+    width: 200px; 
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 30px;
+    color: #000000;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+.btn-ui {
+    background: linear-gradient(to right, #7f7fd5, #86a8e7, #91eae4);
+}
+
+/* Media Queries for responsiveness */
+@media (max-width: 768px) {
+    #ping-pong-table {
+        width: 690px;
+        height: 300px;
+    }
+
+    #left-paddle, #right-paddle {
+        height: 150px;
+    }
+
+    #ball {
+        width: 15px;
+        height: 15px;
+    }
+
+    #player1score, #player2score {
+        font-size: 80px;
+        top: 150px;
+    }
+
+    #reset-btn {
+        font-size: 25px;
+        width: 180px;
+        height: 45px;
+    }
+
+    #pause-btn{
+        font-size: 25px;
+        width: 180px;
+        height: 45px;
+    }
+}
+
+@media (max-width: 480px) {
+    #ping-pong-table {
+        width: 480px;
+        height: 288px;
+    }
+
+    #left-paddle, #right-paddle {
+        height: 120px;
+    }
+
+    #ball {
+        width: 10px;
+        height: 10px;
+    }
+
+    #player1score, #player2score {
+        font-size: 60px;
+        top: 120px;
+    }
+
+    #reset-btn {
+        font-size: 20px;
+        width: 160px;
+        height: 40px;
+    }
+
+    #pause-btn{
+        font-size: 20px;
+        width: 160px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 320px) {
+    #ping-pong-table {
+        width: 300px;
+        height: 180px;
+    }
+
+    #left-paddle, #right-paddle {
+        height: 90px;
+    }
+
+    #ball {
+        width: 8px;
+        height: 8px;
+    }
+
+    #player1score, #player2score {
+        font-size: 40px;
+        top: 100px;
+    }
+
+    #reset-btn {
+        font-size: 15px;
+        width: 140px;
+        height: 35px;
+    }
+
+    #pause-btn{
+        font-size: 15px;
+        width: 140px;
+        height: 35px;
+    }
+}
+
