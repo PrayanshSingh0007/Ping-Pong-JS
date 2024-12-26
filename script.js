@@ -54,38 +54,50 @@ document.addEventListener('DOMContentLoaded', function() {
         let touchEndY = 0;
 
 
-        // combined event listener for both paddles
-        table.addEventListener('touchstart', function(e) {
+        // separate event listeners for each paddle
+        leftPaddle.addEventListener('touchstart', function(e) {
             e.preventDefault();
             touchStartY = e.touches[0].clientY;
         });
 
-        table.addEventListener('touchmove', function(e) {
+        leftPaddle.addEventListener('touchmove', function(e) {
             e.preventDefault();
             touchEndY = e.touches[0].clientY;
             let touchDiff = touchEndY - touchStartY;
 
-            if (e.touches[0].clientX < table.offsetWidth / 2) {
-                // left paddle
-                if (touchDiff < 0 && leftPaddleY > 0) {
-                    // swipe up
-                    leftPaddleY += (-1) * dPy;
-                } else if (touchDiff > 0 && leftPaddleY < table.offsetHeight - leftPaddle.offsetHeight) {
-                    // swipe down
-                    leftPaddleY += dPy;
-                }
-                leftPaddle.style.top = `${leftPaddleY}px`;
-            } else {
-                // right paddle
-                if (touchDiff < 0 && rightPaddleY > 0) {
-                    // swipe up
-                    rightPaddleY += (-1) * dPRy;
-                } else if (touchDiff > 0 && rightPaddleY < table.offsetHeight - rightPaddle.offsetHeight) {
-                    // swipe down
-                    rightPaddleY += dPRy;
-                }
-                rightPaddle.style.top = `${rightPaddleY}px`;
+            if (touchDiff < 0 && leftPaddleY > 0) {
+                // swipe up
+                leftPaddleY += touchDiff;
+                if (leftPaddleY < 0) leftPaddleY = 0;
+            } else if (touchDiff > 0 && leftPaddleY < table.offsetHeight - leftPaddle.offsetHeight) {
+                // swipe down
+                leftPaddleY += touchDiff;
+                if (leftPaddleY > table.offsetHeight - leftPaddle.offsetHeight) leftPaddleY = table.offsetHeight - leftPaddle.offsetHeight;
             }
+            leftPaddle.style.top = `${leftPaddleY}px`;
+            touchStartY = touchEndY; // Update start position for continuous movement
+        });
+
+        rightPaddle.addEventListener('touchstart', function(e) {
+            e.preventDefault();
+            touchStartY = e.touches[0].clientY;
+        });
+
+        rightPaddle.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+            touchEndY = e.touches[0].clientY;
+            let touchDiff = touchEndY - touchStartY;
+
+            if (touchDiff < 0 && rightPaddleY > 0) {
+                // swipe up
+                rightPaddleY += touchDiff;
+                if (rightPaddleY < 0) rightPaddleY = 0;
+            } else if (touchDiff > 0 && rightPaddleY < table.offsetHeight - rightPaddle.offsetHeight) {
+                // swipe down
+                rightPaddleY += touchDiff;
+                if (rightPaddleY > table.offsetHeight - rightPaddle.offsetHeight) rightPaddleY = table.offsetHeight - rightPaddle.offsetHeight;
+            }
+            rightPaddle.style.top = `${rightPaddleY}px`;
             touchStartY = touchEndY; // Update start position for continuous movement
         });
 
