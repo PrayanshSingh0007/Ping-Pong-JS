@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
             touchStartY = touchEndY; // Update start position for continuous movement
         });
 
-        // right paddle event listener
+        // combined event listener for both paddles
         table.addEventListener('touchstart', function(e) {
             e.preventDefault();
             touchStartY = e.touches[0].clientY;
@@ -87,14 +87,27 @@ document.addEventListener('DOMContentLoaded', function() {
             touchEndY = e.touches[0].clientY;
             let touchDiff = touchEndY - touchStartY;
 
-            if (touchDiff < 0 && rightPaddleY > 0) {
-            // swipe up
-            rightPaddleY += (-1) * dPRy;
-            } else if (touchDiff > 0 && rightPaddleY < table.offsetHeight - rightPaddle.offsetHeight) {
-            // swipe down
-            rightPaddleY += dPRy;
+            if (e.touches[0].clientX < table.offsetWidth / 2) {
+                // left paddle
+                if (touchDiff < 0 && leftPaddleY > 0) {
+                    // swipe up
+                    leftPaddleY += (-1) * dPy;
+                } else if (touchDiff > 0 && leftPaddleY < table.offsetHeight - leftPaddle.offsetHeight) {
+                    // swipe down
+                    leftPaddleY += dPy;
+                }
+                leftPaddle.style.top = `${leftPaddleY}px`;
+            } else {
+                // right paddle
+                if (touchDiff < 0 && rightPaddleY > 0) {
+                    // swipe up
+                    rightPaddleY += (-1) * dPRy;
+                } else if (touchDiff > 0 && rightPaddleY < table.offsetHeight - rightPaddle.offsetHeight) {
+                    // swipe down
+                    rightPaddleY += dPRy;
+                }
+                rightPaddle.style.top = `${rightPaddleY}px`;
             }
-            rightPaddle.style.top = `${rightPaddleY}px`;
             touchStartY = touchEndY; // Update start position for continuous movement
         });
 

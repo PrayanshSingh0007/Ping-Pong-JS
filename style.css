@@ -110,100 +110,82 @@ body {
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
     #ping-pong-table {
-        width: 690px;
-        height: 300px;
+        width: 90%;
+        height: auto;
     }
 
     #left-paddle, #right-paddle {
-        height: 150px;
+        height: 20%;
     }
 
     #ball {
-        width: 15px;
-        height: 15px;
+        width: 3%;
+        height: 3%;
     }
 
     #player1score, #player2score {
-        font-size: 80px;
-        top: 150px;
+        font-size: 10vw;
+        top: 20%;
     }
 
-    #reset-btn {
-        font-size: 25px;
-        width: 180px;
-        height: 45px;
-    }
-
-    #pause-btn{
-        font-size: 25px;
-        width: 180px;
-        height: 45px;
+    #reset-btn, #pause-btn {
+        font-size: 4vw;
+        width: 40%;
+        height: auto;
     }
 }
 
 @media (max-width: 480px) {
     #ping-pong-table {
-        width: 480px;
-        height: 288px;
+        width: 90%;
+        height: auto;
     }
 
     #left-paddle, #right-paddle {
-        height: 120px;
+        height: 25%;
     }
 
     #ball {
-        width: 10px;
-        height: 10px;
+        width: 4%;
+        height: 4%;
     }
 
     #player1score, #player2score {
-        font-size: 60px;
-        top: 120px;
+        font-size: 12vw;
+        top: 25%;
     }
 
-    #reset-btn {
-        font-size: 20px;
-        width: 160px;
-        height: 40px;
-    }
-
-    #pause-btn{
-        font-size: 20px;
-        width: 160px;
-        height: 40px;
+    #reset-btn, #pause-btn {
+        font-size: 5vw;
+        width: 50%;
+        height: auto;
     }
 }
 
 @media (max-width: 320px) {
     #ping-pong-table {
-        width: 300px;
-        height: 180px;
+        width: 90%;
+        height: auto;
     }
 
     #left-paddle, #right-paddle {
-        height: 90px;
+        height: 30%;
     }
 
     #ball {
-        width: 8px;
-        height: 8px;
+        width: 5%;
+        height: 5%;
     }
 
     #player1score, #player2score {
-        font-size: 40px;
-        top: 100px;
+        font-size: 15vw;
+        top: 30%;
     }
 
-    #reset-btn {
-        font-size: 15px;
-        width: 140px;
-        height: 35px;
-    }
-
-    #pause-btn{
-        font-size: 15px;
-        width: 140px;
-        height: 35px;
+    #reset-btn, #pause-btn {
+        font-size: 6vw;
+        width: 60%;
+        height: auto;
     }
 }
 
