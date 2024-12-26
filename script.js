@@ -53,28 +53,6 @@ document.addEventListener('DOMContentLoaded', function() {
         let touchStartY = 0;
         let touchEndY = 0;
 
-         // left paddle event listener
-        table.addEventListener('touchstart', function(e) {
-            e.preventDefault();
-            touchStartY = e.touches[0].clientY;
-        });
-
-      
-        table.addEventListener('touchmove', function(e) {
-            e.preventDefault();
-            touchEndY = e.touches[0].clientY;
-            let touchDiff = touchEndY - touchStartY;
-
-            if (touchDiff < 0 && leftPaddleY > 0) {
-            // swipe up
-            leftPaddleY += (-1) * dPy;
-            } else if (touchDiff > 0 && leftPaddleY < table.offsetHeight - leftPaddle.offsetHeight) {
-            // swipe down
-            leftPaddleY += dPy;
-            }
-            leftPaddle.style.top = `${leftPaddleY}px`;
-            touchStartY = touchEndY; // Update start position for continuous movement
-        });
 
         // combined event listener for both paddles
         table.addEventListener('touchstart', function(e) {
